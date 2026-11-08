@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="SOUNDROOM — музыкальная студия в Москве: вокал, гитара, фортепиано, ударные, сведение. Запись на пробное занятие онлайн.">
+<title>SOUNDROOM — музыкальная студия в Москве</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0c11;--s1:#16141c;--s2:#1f1c27;--line:#2c2836;--tx:#efe9e1;--mu:#9a94a6;--ac:#ffb454;--ac2:#ff5b4d;--r:20px;
+--d:"Unbounded","Arial Black",sans-serif;--b:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.6 var(--b);padding-top:env(safe-area-inset-top,0px);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:6px}
+.wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+section{padding:84px 0}
+h1,h2,h3{font-family:var(--d);font-weight:400;line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(28px,6vw,52px);margin-bottom:14px;max-width:16ch}
+.lead{color:var(--mu);max-width:56ch;margin-bottom:40px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:99px;border:1px solid var(--line);background:transparent;cursor:pointer;font-weight:600;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{border-color:var(--tx)}.btn:active{transform:scale(.97)}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#1a1206}.btn.p:hover{background:#ffc67a}
+.rec{width:10px;height:10px;border-radius:50%;background:var(--ac2);box-shadow:0 0 12px var(--ac2)}
+/* header */
+header{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0px);background:rgba(13,12,17,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.sc{border-color:var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font:500 17px var(--d);letter-spacing:.04em;display:flex;align-items:center;gap:10px}
+nav ul{list-style:none;padding:0;display:flex;gap:28px}
+nav a{color:var(--mu);font-size:15px;transition:color .2s}nav a:hover{color:var(--tx)}
+.bar .btn{min-height:42px;padding:0 20px;font-size:14px}
+.burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;position:relative}
+.burger i{position:absolute;left:11px;right:11px;height:2px;background:var(--tx);transition:transform .3s,top .3s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:26px}
+.open .burger i:nth-child(1){top:21px;transform:rotate(45deg)}.open .burger i:nth-child(2){top:21px;transform:rotate(-45deg)}
+@media(max-width:860px){
+ .burger{display:block}.bar>.btn{display:none}
+ nav{position:fixed;inset:0;top:calc(64px + env(safe-area-inset-top,0px));background:var(--bg);padding:24px 20px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:.3s}
+ .open nav{transform:none;opacity:1;visibility:visible}
+ nav ul{flex-direction:column;gap:0}nav a{display:block;padding:18px 0;font:400 26px var(--d);color:var(--tx);border-bottom:1px solid var(--line)}
+ section{padding:64px 0}
+}
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;padding:110px 0 36px;position:relative;overflow:hidden}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.9}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,12,17,.2) 0%,rgba(13,12,17,.55) 55%,var(--bg) 100%);pointer-events:none}
+.hero .wrap{position:relative;z-index:2}
+.hero h1{font-size:clamp(34px,8.4vw,104px);font-weight:300;max-width:13ch;margin:18px 0 22px}
+.tag{display:inline-flex;align-items:center;gap:10px;color:var(--mu);font-size:14px}
+.hero p{color:#cfc8d6;max-width:46ch;margin-bottom:30px}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.hero .tag,.hero h1,.hero p,.acts{animation:in .9s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.12s}.hero p{animation-delay:.24s}.acts{animation-delay:.36s}
+@keyframes in{from{opacity:0;transform:translateY(22px)}}
+/* about */
+.about{display:grid;gap:40px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.facts div{border-top:1px solid var(--line);padding-top:14px}
+.facts b{display:block;font:300 clamp(28px,5vw,44px) var(--d);color:var(--ac)}
+.facts span{color:var(--mu);font-size:14px}
+@media(min-width:900px){.about{grid-template-columns:1fr 1fr;gap:80px}}
+/* cards */
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.card{background:var(--s1);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:12px;transition:border-color .3s,transform .3s}
+.card:hover{border-color:#4a4358}
+.card h3{font-size:21px}.card p{color:var(--mu);font-size:15px;flex:1}
+.link{background:none;border:0;padding:6px 0;color:var(--ac);font-weight:600;cursor:pointer;text-align:left;min-height:44px}
+.pill{font-size:13px;color:var(--mu);border:1px solid var(--line);border-radius:99px;padding:3px 12px;align-self:flex-start}
+.ava{width:76px;height:76px;border-radius:50%;display:grid;place-items:center;font:400 24px var(--d);color:#1a1206}
+.role{color:var(--ac);font-size:14px}
+/* gallery */
+.gal{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.gal button{border:0;padding:0;border-radius:var(--r);overflow:hidden;cursor:pointer;aspect-ratio:4/5;position:relative;background:var(--s1)}
+.gal svg{width:100%;height:100%;display:block;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.gal button:hover svg{transform:scale(1.06)}
+.gal span{position:absolute;left:14px;bottom:12px;font-size:14px;font-weight:500;text-shadow:0 1px 8px #000}
+@media(min-width:800px){.gal{grid-template-columns:repeat(3,1fr);gap:14px}.gal button:nth-child(2),.gal button:nth-child(5){aspect-ratio:4/6}}
+dialog{border:0;background:var(--s1);color:var(--tx);border-radius:var(--r);padding:0;width:min(520px,calc(100% - 24px));max-height:92svh;overflow:hidden}
+dialog::backdrop{background:rgba(0,0,0,.8);backdrop-filter:blur(6px)}
+dialog svg{width:100%;height:auto;max-height:72svh;display:block}
+dialog .cap{display:flex;justify-content:space-between;align-items:center;padding:12px 18px}
+/* pricing */
+.calc{display:grid;gap:28px;background:var(--s1);border:1px solid var(--line);border-radius:28px;padding:26px}
+.seg{display:flex;gap:6px;background:var(--bg);padding:5px;border-radius:99px;border:1px solid var(--line)}
+.seg button{flex:1;min-height:46px;border:0;border-radius:99px;background:none;cursor:pointer;color:var(--mu);font-weight:600;transition:.25s}
+.seg button[aria-pressed=true]{background:var(--ac);color:#1a1206}
+.calc label.t{display:block;color:var(--mu);font-size:14px;margin-bottom:10px}
+.total{font:300 clamp(40px,10vw,72px) var(--d);line-height:1}
+.total small{font-size:.35em;color:var(--mu)}
+.note{color:var(--mu);font-size:14px;margin-top:8px}
+@media(min-width:900px){.calc{grid-template-columns:1.2fr 1fr;padding:44px;gap:56px}}
+/* contacts + form */
+.two{display:grid;gap:40px}
+@media(min-width:900px){.two{grid-template-columns:1fr 1.15fr;gap:72px}}
+.cl{list-style:none;padding:0;display:grid;gap:0}
+.cl li{padding:16px 0;border-bottom:1px solid var(--line);display:grid;gap:2px}
+.cl small{color:var(--mu)}.cl a{font-size:19px}
+form,.done{background:var(--s1);border:1px solid var(--line);border-radius:28px;padding:26px;display:grid;gap:16px}
+.f{display:grid;gap:6px}.f label{font-size:14px;color:var(--mu)}
+.f input,.f select,.f textarea{width:100%;min-height:52px;background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:16px;transition:border-color .2s}
+.f textarea{min-height:90px;resize:vertical}
+.f input:focus,.f select:focus,.f textarea:focus{outline:0;border-color:var(--ac)}
+.f.err input,.f.err select{border-color:var(--ac2)}.f em{display:none;color:var(--ac2);font-size:13px;font-style:normal}.f.err em{display:block}
+.row{display:grid;gap:16px}@media(min-width:560px){.row{grid-template-columns:1fr 1fr}}
+.done[hidden],form[hidden]{display:none}
+.done h3{font-size:26px}.done dl{display:grid;grid-template-columns:auto 1fr;gap:8px 18px;color:var(--mu)}.done dd{color:var(--tx)}
+footer{padding:36px 0 110px;border-top:1px solid var(--line);color:var(--mu);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.fab{position:fixed;left:16px;right:16px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:40;box-shadow:0 10px 40px rgba(0,0,0,.6);transition:transform .35s,opacity .35s}
+.fab.h{transform:translateY(140%);opacity:0;pointer-events:none}
+@media(min-width:861px){.fab{display:none}footer{padding-bottom:36px}}
+.toast{position:fixed;left:50%;top:calc(80px + env(safe-area-inset-top,0px));transform:translate(-50%,-20px);background:var(--tx);color:#111;padding:12px 20px;border-radius:99px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:90;width:max-content;max-width:calc(100% - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header id="hd"><div class="wrap bar">
+ <a href="#top" class="logo" aria-label="SOUNDROOM, наверх"><span class="rec"></span>SOUNDROOM</a>
+ <nav id="nav" aria-label="Основная навигация"><ul>
+  <li><a href="#about">О студии</a></li><li><a href="#dir">Направления</a></li><li><a href="#team">Преподаватели</a></li>
+  <li><a href="#gallery">Галерея</a></li><li><a href="#price">Стоимость</a></li><li><a href="#contacts">Контакты</a></li></ul></nav>
+ <a class="btn p" href="#book">Записаться</a>
+ <button class="burger" id="bg" aria-label="Открыть меню" aria-expanded="false"><i></i><i></i></button>
+</div></header>
+
+<main id="top">
+<div class="hero">
+ <canvas id="cv" aria-hidden="true"></canvas>
+ <div class="wrap">
+  <span class="tag"><span class="rec"></span>Музыкальная студия · Москва, Хохловский пер., 7</span>
+  <h1>Комната, где музыка становится слышной</h1>
+  <p>Уроки вокала, гитары, фортепиано, ударных и сведения в студии с живой акустикой. Первое занятие — пробное.</p>
+  <div class="acts">
+   <a class="btn p" href="#book">Записаться на занятие</a>
+   <button class="btn" id="pl" aria-pressed="false"><span id="pli">▶</span><span id="plt">Послушать комнату</span></button>
+  </div>
+ </div>
+</div>
+
+<section id="about"><div class="wrap about">
+ <div><h2>Студия, в которой хочется играть</h2>
+  <p class="lead" style="margin:0">SOUNDROOM — три акустически обработанных зала в пяти минутах от метро «Китай-город». Мы учим играть, петь и записывать музыку: от первого аккорда до готового трека. Занятия идут один на один или в мини-группах до четырёх человек, инструменты и оборудование уже в залах.</p></div>
+ <div class="facts"><div><b>9</b><span>лет работы студии</span></div><div><b>1 400</b><span>учеников прошли обучение</span></div><div><b>5</b><span>преподавателей-практиков</span></div></div>
+</div></section>
+
+<section id="dir"><div class="wrap"><h2>Чему мы учим</h2><p class="lead">Выберите направление — мы подберём преподавателя и запишем на пробное занятие.</p><div class="grid" id="dg"></div></div></section>
+
+<section id="team"><div class="wrap"><h2>Преподаватели</h2><p class="lead">Действующие музыканты и звукорежиссёры. Каждый ведёт занятия сам, без передачи ученика другим.</p><div class="grid" id="tg"></div></div></section>
+
+<section id="gallery"><div class="wrap"><h2>Залы и оборудование</h2><p class="lead">Нажмите на кадр, чтобы открыть его крупнее.</p><div class="gal" id="gl"></div></div></section>
+<dialog id="lb"><div id="lbv"></div><div class="cap"><b id="lbc"></b><button class="btn" id="lbx" style="min-height:42px">Закрыть</button></div></dialog>
+
+<section id="price"><div class="wrap"><h2>Стоимость занятий</h2><p class="lead">Занятие длится 45 минут. Чем больше занятий в абонементе, тем ниже цена каждого.</p>
+ <div class="calc">
+  <div style="display:grid;gap:24px;align-content:start">
+   <div><label class="t">Формат</label><div class="seg" id="sf"><button aria-pressed="true" data-v="2400">Индивидуально</button><button aria-pressed="false" data-v="1200">Мини-группа</button></div></div>
+   <div><label class="t">Количество занятий</label><div class="seg" id="sn"><button aria-pressed="true" data-v="1">1</button><button aria-pressed="false" data-v="4">4</button><button aria-pressed="false" data-v="8">8</button></div></div>
+  </div>
+  <div style="display:grid;gap:18px;align-content:start">
+   <div><div class="total" id="tt">2 400 <small>₽</small></div><p class="note" id="tn"></p></div>
+   <button class="btn p" id="pb">Записаться по этому тарифу</button>
+   <p class="note">Пробное занятие — 1 200 ₽ и засчитывается в абонемент, если вы продолжите.</p>
+  </div>
+ </div></div></section>
+
+<section id="contacts"><div class="wrap two">
+ <div><h2>Приходите в гости</h2>
+  <ul class="cl">
+   <li><small>Адрес</small><a href="https://yandex.ru/maps/?text=Москва%2C%20Хохловский%20переулок%2C%207" target="_blank" rel="noopener">Москва, Хохловский пер., 7, подвал</a></li>
+   <li><small>Телефон</small><a href="tel:+74950102030">+7 (495) 010-20-30</a></li>
+   <li><small>Почта</small><a href="mailto:hello@soundroom.example">hello@soundroom.example</a></li>
+   <li><small>Часы работы</small><span>Ежедневно с 10:00 до 22:00</span></li>
+  </ul></div>
+ <div id="book" style="scroll-margin-top:76px">
+  <form id="fm" novalidate>
+   <h3 style="font-size:24px">Запись на занятие</h3>
+   <div class="f"><label for="n">Имя</label><input id="n" autocomplete="name" required><em>Введите имя</em></div>
+   <div class="f"><label for="p">Телефон</label><input id="p" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required><em>Укажите телефон в формате +7 900 000-00-00</em></div>
+   <div class="f"><label for="d">Направление</label><select id="d" required></select><em>Выберите направление</em></div>
+   <div class="f"><label for="t">Преподаватель</label><select id="t"></select></div>
+   <div class="row">
+    <div class="f"><label for="dt">Дата</label><input id="dt" type="date" required><em>Выберите дату</em></div>
+    <div class="f"><label for="tm">Время</label><select id="tm" required></select></div>
+   </div>
+   <div class="f"><label for="c">Комментарий</label><textarea id="c" placeholder="Опыт, пожелания, вопросы"></textarea></div>
+   <button class="btn p" type="submit">Записаться</button>
+  </form>
+  <div class="done" id="dn" hidden>
+   <h3>Вы записаны</h3>
+   <dl id="dd"></dl>
+   <button class="btn p" id="ics">Добавить в календарь</button>
+   <a class="btn" id="ml" href="#">Отправить копию в студию</a>
+   <button class="link" id="nw">Записать ещё раз</button>
+  </div>
+ </div>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© <span id="yr"></span> SOUNDROOM. Вымышленная студия, демонстрационный сайт.</span><a href="#top">Наверх</a></div></footer>
+<a class="btn p fab h" id="fab" href="#book">Записаться на занятие</a>
+<div class="toast" id="ts" role="status" aria-live="polite"></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const T=[
+ {id:"v",n:"Алина Ветрова",r:"Вокал",b:"12 лет на сцене, работала хоровым и сессионным вокалистом. Ставит голос без зажимов.",c:"#ffb454"},
+ {id:"g",n:"Максим Орлов",r:"Гитара, бас",b:"Играет в двух группах, учит от первых аккордов до импровизации.",c:"#ff8a6b"},
+ {id:"f",n:"Ирина Левина",r:"Фортепиано, теория",b:"Выпускница консерватории, готовит к экзаменам и учит играть для себя.",c:"#e9c9a0"},
+ {id:"u",n:"Денис Краснов",r:"Ударные",b:"Барабанщик с гастрольным опытом. Ставит технику и чувство ритма.",c:"#f3a6a0"},
+ {id:"s",n:"Тимур Юсупов",r:"Сведение, продакшн",b:"Звукорежиссёр, свёл более 300 треков. Учит собирать музыку в DAW.",c:"#d6b8ff"}];
+const D=[
+ {n:"Вокал",d:"Дыхание, опора, тембр, работа с микрофоном. Подготовка к сцене и записи.",t:["v"]},
+ {n:"Гитара",d:"Акустическая и электрогитара: аккорды, бой, соло, любимые песни.",t:["g"]},
+ {n:"Фортепиано",d:"Классика и современная музыка. Ноты, слух, свободная игра.",t:["f"]},
+ {n:"Ударные",d:"Постановка рук, грувы, филлы, игра с группой на полноценной установке.",t:["u"]},
+ {n:"Сведение и продакшн",d:"Ableton и Logic: аранжировка, запись голоса, сведение и мастеринг.",t:["s"]},
+ {n:"Сольфеджио и теория",d:"Слух, ритм и гармония простыми словами — для любого инструмента.",t:["f","v"]}];
+const toast=m=>{const e=$("#ts");e.textContent=m;e.classList.add("on");clearTimeout(toast.i);toast.i=setTimeout(()=>e.classList.remove("on"),2600)};
+const go=()=>{$("#book").scrollIntoView({behavior:"smooth"})};
+/* render */
+$("#dg").innerHTML=D.map((x,i)=>`<article class="card"><h3>${x.n}</h3><p>${x.d}</p><span class="pill">${x.t.map(id=>T.find(t=>t.id==id).n.split(" ")[0]).join(", ")}</span><button class="link" data-d="${i}">Записаться на ${x.n.toLowerCase()}</button></article>`).join("");
+$("#tg").innerHTML=T.map(x=>`<article class="card"><div class="ava" style="background:${x.c}">${x.n[0]}${x.n.split(" ")[1][0]}</div><h3>${x.n}</h3><span class="role">${x.r}</span><p>${x.b}</p><button class="link" data-t="${x.id}">Записаться к преподавателю</button></article>`).join("");
+/* gallery: inline illustrations; replace with real photos */
+const bg=(a,b)=>`<defs><linearGradient id="g${a.slice(1)}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${a}"/><stop offset="1" stop-color="${b}"/></linearGradient></defs><rect width="400" height="500" fill="url(#g${a.slice(1)})"/>`;
+const S=(a,b,c)=>`<svg viewBox="0 0 400 500" role="img" aria-hidden="true">${bg(a,b)}${c}</svg>`;
+const G=[
+ ["Виниловый проигрыватель",S("#2a1a2e","#0d0c11",`<circle cx="200" cy="230" r="140" fill="#0b0a0e"/><g fill="none" stroke="#3a3346"><circle cx="200" cy="230" r="120"/><circle cx="200" cy="230" r="100"/><circle cx="200" cy="230" r="80"/></g><circle cx="200" cy="230" r="42" fill="#ffb454"/><circle cx="200" cy="230" r="6" fill="#0d0c11"/><path d="M330 90l-80 120" stroke="#efe9e1" stroke-width="6" stroke-linecap="round"/>`)],
+ ["Рояль",S("#1b2433","#0d0c11",`<rect x="40" y="170" width="320" height="200" rx="8" fill="#efe9e1"/><g fill="#14121a">${[0,1,2,3,4].map(i=>`<rect x="${70+i*60}" y="170" width="28" height="120" rx="3"/>`).join("")}</g><g stroke="#bdb5a8">${[1,2,3,4,5,6].map(i=>`<path d="M${40+i*45.7} 290V370"/>`).join("")}</g>`)],
+ ["Микшерный пульт",S("#2d2216","#0d0c11",`<rect x="30" y="140" width="340" height="240" rx="16" fill="#1a1720" stroke="#3a3346"/>${[0,1,2,3,4,5].map(i=>`<path d="M${70+i*52} 180V340" stroke="#3a3346" stroke-width="4"/><rect x="${58+i*52}" y="${200+(i*37)%90}" width="24" height="16" rx="3" fill="${i%2?"#efe9e1":"#ffb454"}"/>`).join("")}`)],
+ ["Вокальная кабина",S("#2b1620","#0d0c11",`<rect x="170" y="90" width="60" height="120" rx="30" fill="#9a94a6"/><path d="M140 170a60 60 0 0 0 120 0M200 230v130M150 370h100" stroke="#efe9e1" stroke-width="7" fill="none" stroke-linecap="round"/><circle cx="200" cy="150" r="90" fill="none" stroke="#ff5b4d" stroke-opacity=".5" stroke-dasharray="4 10"/>`)],
+ ["Ударная установка",S("#1d2a2a","#0d0c11",`<ellipse cx="200" cy="330" rx="80" ry="40" fill="#efe9e1"/><rect x="120" y="330" width="160" height="70" fill="#d9d1c6"/><ellipse cx="200" cy="400" rx="80" ry="22" fill="#bdb5a8"/><ellipse cx="90" cy="230" rx="55" ry="10" fill="#ffb454"/><ellipse cx="320" cy="210" rx="55" ry="10" fill="#ffb454"/><path d="M90 240V420M320 220V420" stroke="#9a94a6" stroke-width="4"/>`)],
+ ["Гитарный зал",S("#2e2318","#0d0c11",`<g transform="rotate(-28 200 250)"><ellipse cx="200" cy="330" rx="70" ry="85" fill="#c9783a"/><ellipse cx="200" cy="250" rx="50" ry="60" fill="#c9783a"/><circle cx="200" cy="320" r="26" fill="#0d0c11"/><rect x="190" y="30" width="20" height="230" fill="#4a3426"/><rect x="184" y="10" width="32" height="40" rx="6" fill="#2a1d14"/></g>`)]];
+$("#gl").innerHTML=G.map((g,i)=>`<button data-i="${i}" aria-label="${g[0]}">${g[1]}<span>${g[0]}</span></button>`).join("");
+const lb=$("#lb");
+$("#gl").onclick=e=>{const b=e.target.closest("button");if(!b)return;const g=G[b.dataset.i];$("#lbv").innerHTML=g[1];$("#lbc").textContent=g[0];lb.showModal()};
+$("#lbx").onclick=()=>lb.close();lb.onclick=e=>{if(e.target===lb)lb.close()};
+/* price */
+const fmt=n=>Math.round(n).toLocaleString("ru-RU").replace(/\u00a0/g," ");
+function seg(id){const w=$(id);w.onclick=e=>{const b=e.target.closest("button");if(!b)return;$$(id+" button").forEach(x=>x.setAttribute("aria-pressed",x==b));calc()}}
+const sel=id=>+$(id+" [aria-pressed=true]").dataset.v;
+const disc={1:0,4:.1,8:.15};
+function calc(){const b=sel("#sf"),n=sel("#sn"),per=b*(1-disc[n]),tot=per*n;
+ $("#tt").innerHTML=fmt(tot)+" <small>₽</small>";
+ $("#tn").textContent=n>1?`${fmt(per)} ₽ за занятие, скидка ${disc[n]*100}%`:"Разовое занятие, 45 минут"}
+seg("#sf");seg("#sn");calc();
+/* form */
+const dsel=$("#d"),tsel=$("#t");
+dsel.innerHTML='<option value="">Выберите направление</option>'+D.map((x,i)=>`<option value="${i}">${x.n}</option>`).join("");
+function fillT(pick){const i=dsel.value,list=i===""?T:D[i].t.map(id=>T.find(t=>t.id==id));
+ tsel.innerHTML='<option value="">Любой преподаватель</option>'+list.map(t=>`<option value="${t.id}">${t.n}</option>`).join("");
+ if(pick&&list.some(t=>t.id==pick))tsel.value=pick}
+dsel.onchange=()=>fillT();fillT();
+const tm=$("#tm");tm.innerHTML='<option value="">Время</option>'+Array.from({length:12},(_,i)=>{const h=10+i;return`<option>${h}:00</option>`}).join("");
+const dt=$("#dt"),now=new Date(),iso=x=>new Date(x-x.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+dt.min=iso(now);dt.value=iso(new Date(now.getTime()+864e5));
+$("#yr").textContent=now.getFullYear();
+function prefill(o){if(o.d!==undefined){dsel.value=o.d;fillT(o.t)}
+ if(o.t&&o.d===undefined){const di=D.findIndex(x=>x.t.includes(o.t));dsel.value=di;fillT(o.t)}
+ if(o.c)$("#c").value=o.c;go();setTimeout(()=>$("#n").focus({preventScroll:true}),600)}
+$("#dg").addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(b)prefill({d:b.dataset.d})});
+$("#tg").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(b)prefill({t:b.dataset.t})});
+$("#pb").onclick=()=>{const n=sel("#sn"),f=sel("#sf")==2400?"индивидуально":"мини-группа";prefill({c:`Тариф: ${f}, ${n} зан. — ${$("#tt").textContent.replace(/\s+/g," ").trim()}`})};
+let last=null;
+function bad(el,on){el.closest(".f").classList.toggle("err",on);return on}
+$("#fm").onsubmit=e=>{e.preventDefault();
+ const ph=$("#p").value.replace(/[^\d+]/g,"");
+ const e1=bad($("#n"),!$("#n").value.trim()),e2=bad($("#p"),!/^(\+7|8|7)\d{10}$/.test(ph)),e3=bad(dsel,dsel.value===""),
+  e4=bad(dt,!dt.value||dt.value<dt.min),e5=bad(tm,!tm.value);
+ if(e1||e2||e3||e4||e5){toast("Проверьте выделенные поля");(document.querySelector(".err input,.err select")||{focus(){}}).focus();return}
+ last={name:$("#n").value.trim(),phone:$("#p").value.trim(),dir:D[dsel.value].n,teacher:tsel.selectedOptions[0].textContent,date:dt.value,time:tm.value,comment:$("#c").value.trim(),created:Date.now()};
+ try{const a=JSON.parse(localStorage.getItem("sr_bookings")||"[]");a.push(last);localStorage.setItem("sr_bookings",JSON.stringify(a))}catch(_){}
+ const dd=new Date(last.date+"T00:00").toLocaleDateString("ru-RU",{day:"numeric",month:"long",weekday:"long"});
+ $("#dd").innerHTML=`<dt>Имя</dt><dd>${last.name}</dd><dt>Направление</dt><dd>${last.dir}</dd><dt>Педагог</dt><dd>${last.teacher}</dd><dt>Когда</dt><dd>${dd}, ${last.time}</dd>`;
+ const body=`Запись на занятие%0AИмя: ${encodeURIComponent(last.name)}%0AТелефон: ${encodeURIComponent(last.phone)}%0AНаправление: ${encodeURIComponent(last.dir)}%0AПреподаватель: ${encodeURIComponent(last.teacher)}%0AДата: ${last.date} ${last.time}%0AКомментарий: ${encodeURIComponent(last.comment)}`;
+ $("#ml").href=`mailto:hello@soundroom.example?subject=${encodeURIComponent("Запись на занятие")}&body=${body}`;
+ $("#fm").hidden=true;$("#dn").hidden=false;toast("Запись создана");go()};
+$("#fm").addEventListener("input",e=>{const f=e.target.closest(".f");f&&f.classList.remove("err")});
+$("#nw").onclick=()=>{$("#fm").hidden=false;$("#dn").hidden=true;$("#fm").reset();dt.value=iso(new Date(now.getTime()+864e5));fillT();go()};
+$("#ics").onclick=()=>{if(!last)return;const s=last.date.replace(/-/g,"")+"T"+last.time.replace(":","").padStart(4,"0")+"00",h=+last.time.split(":")[0],en=last.date.replace(/-/g,"")+"T"+String(h+1).padStart(2,"0")+"0000";
+ const x=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//SOUNDROOM//RU","BEGIN:VEVENT","UID:"+last.created+"@soundroom","DTSTAMP:"+new Date().toISOString().replace(/[-:]|\.\d+/g,""),"DTSTART:"+s,"DTEND:"+en,"SUMMARY:SOUNDROOM: "+last.dir,"LOCATION:Москва\\, Хохловский пер.\\, 7","DESCRIPTION:Преподаватель: "+last.teacher,"END:VEVENT","END:VCALENDAR"].join("\r\n");
+ const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([x],{type:"text/calendar"}));a.download="soundroom.ics";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),999)};
+/* header, menu, fab */
+const hd=$("#hd"),fab=$("#fab");
+$("#bg").onclick=()=>{const o=hd.classList.toggle("open");$("#bg").setAttribute("aria-expanded",o);document.body.style.overflow=o?"hidden":""};
+$$("#nav a").forEach(a=>a.onclick=()=>{hd.classList.remove("open");document.body.style.overflow="";$("#bg").setAttribute("aria-expanded",false)});
+const bk=$("#book"),hero=$(".hero");let tk=0;
+addEventListener("scroll",()=>{if(tk)return;tk=requestAnimationFrame(()=>{tk=0;hd.classList.toggle("sc",scrollY>20);
+ const r=bk.getBoundingClientRect(),hr=hero.getBoundingClientRect();fab.classList.toggle("h",hr.bottom>innerHeight*.5||(r.top<innerHeight&&r.bottom>0))})},{passive:true});
+/* hero: live waveform + synthesized room tone */
+const cv=$("#cv"),cx=cv.getContext("2d"),N=44,rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+let W,H,ac,an,data=new Uint8Array(64),on=false,nodes=[];
+function size(){const k=devicePixelRatio||1;W=cv.clientWidth;H=cv.clientHeight;cv.width=W*k;cv.height=H*k;cx.setTransform(k,0,0,k,0,0)}
+addEventListener("resize",size);size();
+function draw(t){cx.clearRect(0,0,W,H);const bw=W/N,mid=H*.42;
+ if(on)an.getByteFrequencyData(data);
+ for(let i=0;i<N;i++){const j=Math.abs(i-N/2)/(N/2);
+  let v=on?data[Math.floor((1-j)*28)+2]/255:.12+.08*Math.sin(t/900+i*.5)+.05*Math.sin(t/1700+i*1.3);
+  const h=Math.max(6,v*H*.5*(1-j*.4));
+  cx.fillStyle=`rgba(255,${180-j*60|0},${84+j*30|0},${.25+v*.65})`;
+  cx.beginPath();cx.roundRect(i*bw+bw*.2,mid-h/2,bw*.6,h,bw*.3);cx.fill()}
+ if(!rm||on)requestAnimationFrame(draw)}
+draw(0);if(rm)setTimeout(()=>draw(0),50);
+$("#pl").onclick=async()=>{const b=$("#pl");
+ if(!on){ac=ac||new(window.AudioContext||window.webkitAudioContext)();await ac.resume();
+  an=ac.createAnalyser();an.fftSize=128;an.smoothingTimeConstant=.82;
+  const g=ac.createGain(),f=ac.createBiquadFilter();f.type="lowpass";f.frequency.value=1400;
+  g.gain.setValueAtTime(0,ac.currentTime);g.gain.linearRampToValueAtTime(.22,ac.currentTime+2.5);
+  f.connect(g);g.connect(an);an.connect(ac.destination);nodes=[g];
+  [110,164.81,261.63,392,493.88].forEach((fr,i)=>{[0,4].forEach(dt=>{const o=ac.createOscillator(),l=ac.createGain(),lf=ac.createOscillator(),lg=ac.createGain();
+   o.type=i<2?"sine":"triangle";o.frequency.value=fr;o.detune.value=dt;l.gain.value=.18/(1+i*.3);
+   lf.frequency.value=.12+i*.07;lg.gain.value=.08;lf.connect(lg);lg.connect(l.gain);
+   o.connect(l);l.connect(f);o.start();lf.start();nodes.push(o,lf)})});
+  on=true;requestAnimationFrame(draw)}
+ else{const g=nodes[0];g.gain.cancelScheduledValues(ac.currentTime);g.gain.setValueAtTime(g.gain.value,ac.currentTime);g.gain.linearRampToValueAtTime(0,ac.currentTime+.8);
+  setTimeout(()=>{nodes.forEach(n=>{try{n.stop&&n.stop()}catch(_){}});an.disconnect();on=false;if(!rm)requestAnimationFrame(draw)},850)}
+ const p=!(b.getAttribute("aria-pressed")=="true");b.setAttribute("aria-pressed",p);$("#pli").textContent=p?"■":"▶";$("#plt").textContent=p?"Остановить":"Послушать комнату"};
+</script>
+</body>
+</html>
